@@ -7,3 +7,4 @@
 - lazygit
 - delta
 - ghostty
+- zsh
