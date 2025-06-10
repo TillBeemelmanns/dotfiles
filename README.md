@@ -6,3 +6,4 @@
 - bat
 - lazygit
 - delta
+- ghostty
