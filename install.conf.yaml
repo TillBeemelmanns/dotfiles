@@ -1,0 +1,15 @@
+- defaults:
+    link:
+        relink: true
+        create: true
+
+- clean: ['~', '~/.config', '~/.local/bin']
+
+- link:
+    ~/.config/:
+        glob: true
+        path: config/*
+    ~/:
+        glob: true
+        path: home/*
+        prefix: '.'
