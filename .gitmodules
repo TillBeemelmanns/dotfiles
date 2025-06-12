@@ -1,3 +1,6 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = git@github.com:anishathalye/dotbot.git
+[submodule "home/tmux"]
+	path = home/tmux
+	url = git@github.com:gpakosz/.tmux.git
