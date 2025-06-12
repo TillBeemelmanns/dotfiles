@@ -1,10 +1,14 @@
 # Dotfiles
 
 
-### Install
+### Install as local binaries
 - yazi
 - bat
 - lazygit
 - delta
-- ghostty
 - zsh
+
+to `~/.local/bin`
+
+### Install
+- ghostty
