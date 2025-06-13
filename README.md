@@ -10,5 +10,5 @@
 
 to `~/.local/bin`
 
-### Install
+### Install on host
 - ghostty
