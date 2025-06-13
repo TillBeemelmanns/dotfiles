@@ -1,6 +1,5 @@
 # Dotfiles
 
-
 ### Install as local binaries
 - yazi
 - bat
