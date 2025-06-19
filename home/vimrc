@@ -4,7 +4,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'tpope/vim-sensible'
 Plug 'sainnhe/sonokai'
-
+Plug 'vim-airline/vim-airline'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -16,7 +16,7 @@ endif
 
 let g:sonokai_style = 'default'
 let g:sonokai_better_performance = 1
-
+let g:airline_theme = 'sonokai'
 colorscheme sonokai
 
 set number
