@@ -1,0 +1,32 @@
+" Plugins will be downloaded under the specified directory.
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+
+" Declare the list of plugins.
+Plug 'tpope/vim-sensible'
+Plug 'sainnhe/sonokai'
+
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+
+
+if has('termguicolors')
+	set termguicolors
+endif
+
+let g:sonokai_style = 'default'
+let g:sonokai_better_performance = 1
+
+colorscheme sonokai
+
+set number
+
+" set list
+" set lcs+=space:·
+
+set mouse=a
+syntax on
+
+set autoindent
+set smartindent
+
