@@ -13,3 +13,6 @@
 [submodule "home/ohmyzsh"]
 	path = home/ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "home/vim/plugged/vim-airline"]
+	path = home/vim/plugged/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
