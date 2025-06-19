@@ -10,3 +10,6 @@
 [submodule "home/vim/plugged/sonokai"]
 	path = home/vim/plugged/sonokai
 	url = git@github.com:sainnhe/sonokai.git
+[submodule "home/ohmyzsh"]
+	path = home/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
