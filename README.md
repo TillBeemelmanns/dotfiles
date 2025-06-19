@@ -14,6 +14,8 @@ to `~/.local/bin`
 
 ### Install dotfiles
 ```
+git clone https://github.com/TillBeemelmanns/dotfiles
+cd dotfiles
 git submodule init
 git submodule update
 ./install
