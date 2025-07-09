@@ -13,7 +13,7 @@ to `~/.local/bin`
 - ghostty
 
 ### Install dotfiles
-```
+```bash
 git clone https://github.com/TillBeemelmanns/dotfiles
 cd dotfiles
 git submodule init
