@@ -11,7 +11,6 @@ function y() {
 }
 
 # Environment Variables
-export PATH=$PATH:~/.local/bin
 export TERM=xterm-256color
 export GPG_TTY=$(tty)
 
@@ -30,10 +29,10 @@ if [ -d "$HOME"/.local/bin ] ; then
     export PATH="$HOME"/.local/bin:$PATH
 fi
 
-if has nvim; then
-    export EDITOR='nvim'
-elif has vim; then
+if has vim; then
     export EDITOR='vim'
+elif has nvim; then
+    export EDITOR='nvim'
 elif has vi; then
     export EDITOR='vi'
 fi
