@@ -3,7 +3,7 @@
 # This template file has been automatically created at the following
 # path since Ghostty couldn't find any existing config files on your system:
 #
-#   /home/beemelmanns/.config/ghostty/config
+#   ~/.config/ghostty/config
 #
 # The template does not set any default options, since Ghostty ships
 # with sensible defaults for all options. Users should only need to set
@@ -51,7 +51,7 @@ font-style-bold = Medium
 font-style-italic = Medium
 font-style-bold-italic = Medium
 
-font-size = 12
+font-size = 9
 
 theme = GitHubDarkDefault
 mouse-hide-while-typing = true
