@@ -10,6 +10,9 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# Do not share history across zsh instances
+setopt nosharehistory
+
 # Environment Variables
 export TERM=xterm-256color
 export GPG_TTY=$(tty)
