@@ -1,21 +1,21 @@
 [submodule "dotbot"]
 	path = dotbot
-	url = git@github.com:anishathalye/dotbot.git
+	url = https://github.com/anishathalye/dotbot.git
 [submodule "home/tmux"]
 	path = home/tmux
-	url = git@github.com:gpakosz/.tmux.git
+	url = https://github.com/gpakosz/.tmux.git
 [submodule "home/vim/plugged/vim-sensible"]
 	path = home/vim/plugged/vim-sensible
-	url = git@github.com:tpope/vim-sensible.git
+	url = https://github.com/tpope/vim-sensible.git
 [submodule "home/vim/plugged/sonokai"]
 	path = home/vim/plugged/sonokai
-	url = git@github.com:sainnhe/sonokai.git
+	url = https://github.com/sainnhe/sonokai.git
 [submodule "home/ohmyzsh"]
 	path = home/ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule "home/vim/plugged/vim-airline"]
 	path = home/vim/plugged/vim-airline
-	url = git@github.com:vim-airline/vim-airline.git
+	url = https://github.com/vim-airline/vim-airline.git
 [submodule "home/zsh-autocomplete"]
 	path = home/zsh-autocomplete
 	url = https://github.com/marlonrichert/zsh-autocomplete.git
