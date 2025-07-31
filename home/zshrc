@@ -18,7 +18,7 @@ export TERM=xterm-256color
 export GPG_TTY=$(tty)
 
 # Source zsh autocomplete
-source "$HOME"/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source "$HOME"/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Source zsh autosuggestions
 source "$HOME"/.zsh-autosuggestions/zsh-autosuggestions.zsh
