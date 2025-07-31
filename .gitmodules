@@ -16,9 +16,6 @@
 [submodule "home/vim/plugged/vim-airline"]
 	path = home/vim/plugged/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "home/zsh-autocomplete"]
-	path = home/zsh-autocomplete
-	url = https://github.com/marlonrichert/zsh-autocomplete.git
 [submodule "home/zsh-autosuggestions"]
 	path = home/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
