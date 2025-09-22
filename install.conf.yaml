@@ -6,9 +6,23 @@
 - clean: ['~', '~/.config', '~/.local/bin']
 
 - link:
-    ~/.config/:
+    ~/.config/lazygit:
         glob: true
-        path: config/*
+        path: config/lazygit/*
+    ~/.config/pip:
+        glob: true
+        path: config/pip/*
+
+    ~/.config/ghostty/themes:
+        glob: true
+        path: config/ghostty/themes/*
+    ~/.config/ghostty/config:
+        if: '[ `uname` = Darwin ]'
+        path: config/ghostty/config_darwin
+    ~/.config/ghostty/config:
+        if: '[ `uname` = Linux ]'
+        path: config/ghostty/config_linux
+
     ~/:
         glob: true
         path: home/*
