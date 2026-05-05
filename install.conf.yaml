@@ -23,6 +23,11 @@
         if: '[ `uname` = Linux ]'
         path: config/ghostty/config_linux
 
+    ~/.claude/settings.json:
+        path: config/claude/settings.json
+    ~/.claude/statusline-command.sh:
+        path: config/claude/statusline-command.sh
+
     ~/:
         glob: true
         path: home/*
