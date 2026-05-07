@@ -42,13 +42,16 @@ make_bar() {
     else                               _color="\033[32m"
     fi
 
-    printf "  \033[2m%s\033[0m\033[2m▕\033[0m${_color}%s\033[2m▏\033[0m\033[2m%d%%\033[0m" \
+    printf "  \033[2m%s \033[0m${_color}%s\033[2m▏\033[0m\033[2m%d%%\033[0m" \
         "$_label" "$_fill" "$_pct_int"
 }
 
-# Context window bar
+# Context window bar — show 0% when no messages yet (used_percentage is null)
 used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
-[ -n "$used" ] && make_bar "C" "$used"
+if [ -z "$used" ]; then
+    used="0"
+fi
+make_bar "C" "$used"
 
 # 5-hour session bar + reset countdown
 # resets_at is a Unix epoch number (seconds), not an ISO string
@@ -68,6 +71,19 @@ if [ -n "$session_pct" ]; then
     fi
 fi
 
-# 7-day weekly bar
+# 7-day weekly bar + reset countdown
 week_pct=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
-[ -n "$week_pct" ] && make_bar "W" "$week_pct"
+if [ -n "$week_pct" ]; then
+    make_bar "W" "$week_pct"
+
+    week_reset_epoch=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
+    if [ -n "$week_reset_epoch" ] && [ "$week_reset_epoch" != "null" ]; then
+        now=$(date +%s)
+        week_remaining=$((week_reset_epoch - now))
+        if [ "$week_remaining" -gt 0 ]; then
+            total_h=$((week_remaining / 3600))
+            total_m=$(( (week_remaining % 3600) / 60 ))
+            printf " \033[2m↺%d:%02d\033[0m" "$total_h" "$total_m"
+        fi
+    fi
+fi
