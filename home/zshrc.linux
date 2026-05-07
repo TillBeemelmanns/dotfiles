@@ -1,0 +1,3 @@
+# Linux/Ubuntu-specific configuration
+
+alias update='omz update'

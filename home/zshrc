@@ -43,6 +43,11 @@ elif has vi; then
     export EDITOR='vi'
 fi
 
+# Source OS-specific config
+_zshrc_os="$HOME/.zshrc.$(uname -s | tr '[:upper:]' '[:lower:]')"
+[ -r "$_zshrc_os" ] && source "$_zshrc_os"
+unset _zshrc_os
+
 # Allow local customizations in the ~/.zshrc_local file
 if [ -r "$HOME"/.zshrc.local ]; then
     source "$HOME"/.zshrc.local
