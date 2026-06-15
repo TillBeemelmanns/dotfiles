@@ -6,6 +6,14 @@
 - clean: ['~', '~/.config', '~/.local/bin']
 
 - shell:
+    - command: bash scripts/install-delta.sh
+      description: Install delta if not already installed
+    - command: bash scripts/install-lazygit.sh
+      description: Install lazygit if not already installed
+    - command: bash scripts/install-turm.sh
+      description: Install turm if not already installed
+    - command: bash scripts/install-yazi.sh
+      description: Install yazi if not already installed
     - command: '[ -L ~/.config/ghostty ] && rm ~/.config/ghostty || true'
       description: Remove ghostty directory symlink to allow individual file linking
 
