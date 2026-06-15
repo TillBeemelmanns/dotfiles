@@ -5,17 +5,18 @@
 
 - clean: ['~', '~/.config', '~/.local/bin']
 
+- shell:
+    - command: '[ -L ~/.config/ghostty ] && rm ~/.config/ghostty || true'
+      description: Remove ghostty directory symlink to allow individual file linking
+
 - link:
     ~/.config/lazygit:
-        glob: true
-        path: config/lazygit/*
+        path: config/lazygit
     ~/.config/pip:
-        glob: true
-        path: config/pip/*
+        path: config/pip
 
     ~/.config/ghostty/themes:
-        glob: true
-        path: config/ghostty/themes/*
+        path: config/ghostty/themes
     ~/.config/ghostty/config:
         if: '[ `uname` = Darwin ]'
         path: config/ghostty/config_darwin
