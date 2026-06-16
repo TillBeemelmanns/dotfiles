@@ -6,6 +6,8 @@
 - clean: ['~', '~/.config', '~/.local/bin']
 
 - shell:
+    - command: bash scripts/install-bat.sh
+      description: Install bat if not already installed
     - command: bash scripts/install-delta.sh
       description: Install delta if not already installed
     - command: bash scripts/install-lazygit.sh
