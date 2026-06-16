@@ -1,13 +1,15 @@
 # Dotfiles
 
-### Install as local binaries
+### Auto-installed to `~/.local/bin`
+`./install` downloads these automatically if missing (Linux + macOS, skips if already installed):
 - yazi
-- bat
-- lazygit
 - delta
-- zsh
+- lazygit
+- turm (Linux only)
 
-to `~/.local/bin`
+### Install manually
+- bat
+- zsh
 
 ### Install on host
 - ghostty
