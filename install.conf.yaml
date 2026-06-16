@@ -5,7 +5,11 @@
     clean:
         recursive: true
 
-- clean: ['~', '~/.config', '~/.local/bin']
+- clean:
+    '~':
+        recursive: false
+    '~/.config':
+    '~/.local/bin':
 
 - shell:
     - command: bash scripts/install-bat.sh
