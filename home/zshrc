@@ -52,3 +52,6 @@ unset _zshrc_os
 if [ -r "$HOME"/.zshrc.local ]; then
     source "$HOME"/.zshrc.local
 fi
+
+# Added by Antigravity IDE
+export PATH="/Users/beemelmanns/.antigravity-ide/antigravity-ide/bin:$PATH"

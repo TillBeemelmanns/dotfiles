@@ -1,13 +1,8 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## What this is
-
-Personal dotfiles managed by [dotbot](https://github.com/anishathalye/dotbot) (submodule at `dotbot/`), driven entirely by `install.conf.yaml`. No build system, no tests.
+personal dotfiles for linux/macos
 
 ## Commands
-
 ```bash
 ./install -v   # apply install.conf.yaml; idempotent, re-run to verify any change
 ```
