@@ -31,6 +31,8 @@
         path: config/lazygit
     ~/.config/pip:
         path: config/pip
+    ~/.config/yazi:
+        path: config/yazi
 
     ~/.config/ghostty/themes:
         path: config/ghostty/themes
