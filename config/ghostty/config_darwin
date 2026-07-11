@@ -52,6 +52,7 @@ font-style-italic = Medium
 font-style-bold-italic = Medium
 
 font-size = 12
+font-feature = -calt
 
 theme = GithubDarkDefault
 mouse-hide-while-typing = true
