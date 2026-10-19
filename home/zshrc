@@ -22,7 +22,8 @@ source "$HOME"/.zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.ohmyzsh"
-ZSH_THEME="afowler"
+ZSH_CUSTOM="$HOME/.zsh-custom"
+ZSH_THEME="robbyrussell-host-path"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
