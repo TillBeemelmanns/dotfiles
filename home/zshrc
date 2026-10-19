@@ -26,6 +26,11 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
+# Show hostname after the arrow (robbyrussell shows none by default)
+_host="%{$fg[yellow]%}%m%{$reset_color%} "
+PROMPT="${PROMPT/ %{$fg[cyan]/ ${_host}%{$fg[cyan]}"
+unset _host
+
 
 if [ -z "$LANG" ]; then
     export LANG=en_US.UTF-8
