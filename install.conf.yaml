@@ -56,3 +56,18 @@
     ~/.config/ghostty/config:
         if: '[ `uname` = Linux ]'
         path: config/ghostty/config_linux
+
+# ULHPC cluster only
+- link:
+    ~/.config/ulhpc:
+        if: 'hostname -f 2>/dev/null | grep -q "\.uni\.lux$"'
+        path: config/ulhpc
+    ~/.bashrc.local:
+        if: 'hostname -f 2>/dev/null | grep -q "\.uni\.lux$"'
+        path: config/ulhpc/rc.sh
+    ~/.zshrc.local:
+        if: 'hostname -f 2>/dev/null | grep -q "\.uni\.lux$"'
+        path: config/ulhpc/rc.sh
+    ~/.local/bin/gpus:
+        if: 'hostname -f 2>/dev/null | grep -q "\.uni\.lux$"'
+        path: config/ulhpc/gpus

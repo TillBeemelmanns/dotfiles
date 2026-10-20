@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# Free GPUs per partition. Usage: gpus [-v]   (-v: list nodes too)
+# Nodes that are down/drained/etc. count towards "total" but never as free.
+set -euo pipefail
+
+verbose=0
+[ "${1:-}" = "-v" ] && verbose=1
+
+scontrol show node -o | awk -v verbose="$verbose" '
+function val(key,   i) {
+    for (i = 1; i <= NF; i++)
+        if (index($i, key "=") == 1) return substr($i, length(key) + 2)
+    return ""
+}
+{
+    gres = val("Gres")
+    if (gres !~ /^gpu:/) next
+    sub(/\(.*/, "", gres)
+    n = split(gres, g, ":")
+    type = g[2]; total = g[n] + 0
+
+    used = 0
+    if (match(val("AllocTRES"), /gres\/gpu=[0-9]+/))
+        used = substr(val("AllocTRES"), RSTART + 9, RLENGTH - 9) + 0
+
+    state = val("State")
+    usable = (state !~ /DOWN|DRAIN|FAIL|INVAL|MAINT|NOT_RESPONDING|UNK|FUTURE/)
+    free = usable ? total - used : 0
+
+    np = split(val("Partitions"), parts, ",")
+    for (i = 1; i <= np; i++) {
+        key = parts[i] SUBSEP type
+        seen[key] = 1
+        tot[key] += total; fre[key] += free
+        if (free > 0) nodes_free[key]++
+        if (verbose) lst[key] = lst[key] sprintf("    %-10s %d/%d free  %s\n", val("NodeName"), free, total, state)
+    }
+}
+END {
+    printf "%-14s %-8s %9s %11s\n", "PARTITION", "GPU", "FREE/TOT", "NODES-FREE"
+    nk = 0
+    for (key in seen) {  # insertion sort so output is ordered by partition, type
+        j = ++nk
+        while (j > 1 && order[j - 1] > key) { order[j] = order[j - 1]; j-- }
+        order[j] = key
+    }
+    for (i = 1; i <= nk; i++) {
+        key = order[i]
+        split(key, k, SUBSEP)
+        printf "%-14s %-8s %4d/%-4d %11d\n", k[1], k[2], fre[key], tot[key], nodes_free[key]
+        if (verbose) printf "%s", lst[key]
+    }
+}'
