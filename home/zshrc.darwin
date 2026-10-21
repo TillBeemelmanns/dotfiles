@@ -1,3 +1,17 @@
 # macOS-specific configuration
 
-alias update='omz update && brew update && brew install --cask claude-code@latest && brew upgrade codex stats ghostty whatcable'
+update() {
+    brew update
+    brew install --cask claude-code@latest
+    # brew upgrade aborts the whole list if one package is missing, so go one by one
+    local pkg
+    for pkg in codex stats ghostty whatcable; do
+        if brew list "$pkg" &>/dev/null; then
+            brew upgrade "$pkg"
+        else
+            echo "skipping $pkg (not installed)"
+        fi
+    done
+    # last: omz update execs a new shell when it pulls changes, ending this function
+    omz update
+}
