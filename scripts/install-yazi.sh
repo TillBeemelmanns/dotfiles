@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if command -v yazi >/dev/null 2>&1; then
-    echo "yazi already installed: $(command -v yazi)"
-    exit 0
-fi
+trap 'echo "yazi installation FAILED" >&2' ERR
 
 OS=$(uname -s)
 ARCH=$(uname -m)
@@ -36,4 +33,4 @@ mkdir -p ~/.local/bin
 install -m 755 "$TMPDIR/$TARGET/yazi" ~/.local/bin/yazi
 install -m 755 "$TMPDIR/$TARGET/ya" ~/.local/bin/ya
 
-echo "yazi installed to ~/.local/bin/"
+echo "yazi successfully installed to ~/.local/bin/"

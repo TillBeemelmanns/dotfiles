@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if command -v bat >/dev/null 2>&1; then
-    echo "bat already installed: $(command -v bat)"
-    exit 0
-fi
+trap 'echo "bat installation FAILED" >&2' ERR
 
 OS=$(uname -s)
 ARCH=$(uname -m)
@@ -38,4 +35,4 @@ tar -xzf "$TMPDIR/bat.tar.gz" -C "$TMPDIR"
 mkdir -p ~/.local/bin
 install -m 755 "$TMPDIR/$TARGET/bat" ~/.local/bin/bat
 
-echo "bat installed to ~/.local/bin/bat"
+echo "bat successfully installed to ~/.local/bin/bat"

@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if command -v turm >/dev/null 2>&1; then
-    echo "turm already installed: $(command -v turm)"
-    exit 0
-fi
+trap 'echo "turm installation FAILED" >&2' ERR
 
 OS=$(uname -s)
 ARCH=$(uname -m)
@@ -38,4 +35,4 @@ mkdir -p ~/.local/bin
 BINARY=$(find "$TMPDIR" -name turm -type f | head -1)
 install -m 755 "$BINARY" ~/.local/bin/turm
 
-echo "turm installed to ~/.local/bin/turm"
+echo "turm successfully installed to ~/.local/bin/turm"

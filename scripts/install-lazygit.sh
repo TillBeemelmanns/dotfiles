@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if command -v lazygit >/dev/null 2>&1; then
-    echo "lazygit already installed: $(command -v lazygit)"
-    exit 0
-fi
+trap 'echo "lazygit installation FAILED" >&2' ERR
 
 OS=$(uname -s)
 ARCH=$(uname -m)
@@ -38,4 +35,4 @@ tar -xzf "$TMPDIR/lazygit.tar.gz" -C "$TMPDIR" lazygit
 mkdir -p ~/.local/bin
 install -m 755 "$TMPDIR/lazygit" ~/.local/bin/lazygit
 
-echo "lazygit installed to ~/.local/bin/lazygit"
+echo "lazygit successfully installed to ~/.local/bin/lazygit"

@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if command -v delta >/dev/null 2>&1; then
-    echo "delta already installed: $(command -v delta)"
-    exit 0
-fi
+trap 'echo "delta installation FAILED" >&2' ERR
 
 OS=$(uname -s)
 ARCH=$(uname -m)
@@ -46,4 +43,4 @@ tar -xzf "$TMPDIR/delta.tar.gz" -C "$TMPDIR"
 mkdir -p ~/.local/bin
 install -m 755 "$TMPDIR/$TARGET/delta" ~/.local/bin/delta
 
-echo "delta installed to ~/.local/bin/delta"
+echo "delta successfully installed to ~/.local/bin/delta"
