@@ -3,6 +3,9 @@
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
   },
+  "enabledPlugins": {
+    "ponytail@ponytail": false
+  },
   "extraKnownMarketplaces": {
     "ponytail": {
       "source": {
@@ -12,8 +15,5 @@
     }
   },
   "effortLevel": "high",
-  "theme": "dark",
-  "enabledPlugins": {
-    "ponytail@ponytail": true
-  }
+  "theme": "dark"
 }
