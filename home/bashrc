@@ -132,3 +132,7 @@ fi
 if [ -r ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:~/.lmstudio/bin"
+
