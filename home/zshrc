@@ -44,6 +44,11 @@ elif has vi; then
     export EDITOR='vi'
 fi
 
+# Install Ghostty terminfo on remote hosts when connecting from Ghostty
+if [ "$TERM_PROGRAM" = "ghostty" ] && has ghostty; then
+    alias ssh='ghostty +ssh --'
+fi
+
 # Source OS-specific config
 _zshrc_os="$HOME/.zshrc.$(uname -s | tr '[:upper:]' '[:lower:]')"
 [ -r "$_zshrc_os" ] && source "$_zshrc_os"
