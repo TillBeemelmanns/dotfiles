@@ -71,6 +71,6 @@
     ~/.zshrc.local:
         if: 'hostname -f 2>/dev/null | grep -q "\.uni\.lux$"'
         path: config/ulhpc/rc.sh
-    ~/.local/bin/gpus:
+    ~/.local/bin/si-overview:
         if: 'hostname -f 2>/dev/null | grep -q "\.uni\.lux$"'
-        path: config/ulhpc/gpus
+        path: config/ulhpc/si-overview

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Free GPUs per partition. Usage: gpus [-v]   (-v: list nodes too)
+# Free GPUs per partition. Usage: si-overview [-v]   (-v: list nodes too)
 # Nodes that are down/drained/etc. count towards "total" but never as free.
 set -euo pipefail
 
