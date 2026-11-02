@@ -1,2 +1,3 @@
 [mgr]
 linemode = "mtime_ls"
+show_hidden = true
