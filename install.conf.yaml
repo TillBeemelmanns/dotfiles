@@ -20,6 +20,8 @@
       description: Install latest bat
     - command: bash scripts/install-delta.sh
       description: Install latest delta
+    - command: bash scripts/install-diffnav.sh
+      description: Install latest diffnav
     - command: bash scripts/install-lazygit.sh
       description: Install latest lazygit
     - command: bash scripts/install-turm.sh

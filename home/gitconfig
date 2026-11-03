@@ -7,6 +7,6 @@
 	required = true
 [core]
 	editor = vim
-	pager = delta
+	pager = diffnav
 [delta]
 	side-by-side = true
