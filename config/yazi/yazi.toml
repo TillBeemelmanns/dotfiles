@@ -1,3 +1,7 @@
 [mgr]
 linemode = "mtime_ls"
 show_hidden = true
+[preview]
+max_width  = 2400
+max_height = 3600
+image_quality = 90

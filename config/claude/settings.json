@@ -1,4 +1,5 @@
 {
+  "workflowKeywordTriggerEnabled": false,
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
@@ -15,5 +16,9 @@
     }
   },
   "effortLevel": "high",
-  "theme": "dark"
+  "promptSuggestionEnabled": false,
+  "awaySummaryEnabled": false,
+  "theme": "dark",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
 }
