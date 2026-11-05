@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 # Free GPUs per partition. Usage: si-overview [-v]   (-v: list nodes too)
 # Nodes that are down/drained/etc. count towards "total" but never as free.
+# Always queries iris: aion has no GPUs, and login/compute nodes default to their own cluster.
+# VRAM is per GPU, read from the node feature (e.g. volta16); NODE-RAM is per node.
 set -euo pipefail
 
 verbose=0
 [ "${1:-}" = "-v" ] && verbose=1
 
-scontrol show node -o | awk -v verbose="$verbose" '
+scontrol -M iris show node -o | awk -v verbose="$verbose" '
 function val(key,   i) {
     for (i = 1; i <= NF; i++)
         if (index($i, key "=") == 1) return substr($i, length(key) + 2)
@@ -19,6 +21,12 @@ function val(key,   i) {
     n = split(gres, g, ":")
     type = g[2]; total = g[n] + 0
 
+    vram = "?"
+    nf = split(val("AvailableFeatures"), feats, ",")
+    for (i = 1; i <= nf; i++)
+        if (feats[i] ~ ("^" type "[0-9]+$")) vram = substr(feats[i], length(type) + 1) "G"
+    ram = int(val("RealMemory") / 1024)
+
     used = 0
     if (match(val("AllocTRES"), /gres\/gpu=[0-9]+/))
         used = substr(val("AllocTRES"), RSTART + 9, RLENGTH - 9) + 0
@@ -29,15 +37,16 @@ function val(key,   i) {
 
     np = split(val("Partitions"), parts, ",")
     for (i = 1; i <= np; i++) {
-        key = parts[i] SUBSEP type
+        key = parts[i] SUBSEP type SUBSEP vram
         seen[key] = 1
         tot[key] += total; fre[key] += free
+        if (ram > maxram[key]) maxram[key] = ram
         if (free > 0) nodes_free[key]++
         if (verbose) lst[key] = lst[key] sprintf("    %-10s %d/%d free  %s\n", val("NodeName"), free, total, state)
     }
 }
 END {
-    printf "%-14s %-8s %9s %11s\n", "PARTITION", "GPU", "FREE/TOT", "NODES-FREE"
+    printf "%-14s %-8s %5s %9s %9s %11s\n", "PARTITION", "GPU", "VRAM", "NODE-RAM", "FREE/TOT", "NODES-FREE"
     nk = 0
     for (key in seen) {  # insertion sort so output is ordered by partition, type
         j = ++nk
@@ -47,7 +56,7 @@ END {
     for (i = 1; i <= nk; i++) {
         key = order[i]
         split(key, k, SUBSEP)
-        printf "%-14s %-8s %4d/%-4d %11d\n", k[1], k[2], fre[key], tot[key], nodes_free[key]
+        printf "%-14s %-8s %5s %8dG %4d/%-4d %11d\n", k[1], k[2], k[3], maxram[key], fre[key], tot[key], nodes_free[key]
         if (verbose) printf "%s", lst[key]
     }
 }'
