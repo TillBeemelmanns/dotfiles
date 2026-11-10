@@ -366,7 +366,7 @@ tmux_conf_copy_to_os_clipboard=false
 # start with mouse mode enabled
 set -g mouse on
 
-# fork-free status line: Defender epsext scans every exec; set status-interval back to 10 only with the original line
+# status line: Defender epsext scans every exec; set status-interval back to 10 only with the original line
 set -g status-interval 60
 
 # macOS's system terminfo for xterm-256color lacks XM (SGR mouse); force it
