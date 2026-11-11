@@ -6,6 +6,7 @@
 - bat
 - delta
 - lazygit
+- shw (images / videos / markdown viewer)
 - turm (Linux only)
 
 ### Install manually

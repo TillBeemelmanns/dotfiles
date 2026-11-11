@@ -24,6 +24,8 @@
       description: Install latest diffnav
     - command: bash scripts/install-lazygit.sh
       description: Install latest lazygit
+    - command: bash scripts/install-shw.sh
+      description: Install latest shw
     - command: bash scripts/install-turm.sh
       description: Install latest turm
     - command: bash scripts/install-yazi.sh
