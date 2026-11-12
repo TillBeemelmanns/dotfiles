@@ -7,11 +7,11 @@ max_height = 3600
 image_quality = 90
 
 [opener]
-shw = [{ run = 'shw "$@"', block = true, desc = "shw" }]
+shw = [{ run = 'shw %s', block = true, desc = "shw" }]
 
 [open]
 prepend_rules = [
 	{ mime = "image/*", use = ["shw", "open"] },
 	{ mime = "video/*", use = ["shw", "open"] },
-	{ name = "*.md", use = ["shw", "edit"] },
+	{ url = "*.md", use = ["shw", "edit"] },
 ]
